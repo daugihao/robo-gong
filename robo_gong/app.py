@@ -1,7 +1,7 @@
 from time import sleep
 
 from robo_gong.swinger import strike, back_swing
-from robo_gong.kompass import detect_version_change
+#from robo_gong.kompass import detect_version_change
 
 
 COOLDOWN = 60 # Seconds
@@ -13,8 +13,8 @@ WATCHED_SERVICES = [
 def wait_to_gong():
 
 	# Wait for version change
-	detect_version_change(WATCHED_SERVICES)
-	
+#	detect_version_change(WATCHED_SERVICES)
+
 	# Hit that gong
 	back_swing()
 	strike()
