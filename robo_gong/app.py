@@ -2,7 +2,7 @@ from time import sleep
 
 from robo_gong.swinger import strike, back_swing
 from robo_gong.kompass import detect_version_change
-
+from robo_gong.audio import play
 
 COOLDOWN = 60 # Seconds
 
@@ -18,6 +18,7 @@ def wait_to_gong():
 	# Hit that gong
 	back_swing()
 	strike()
+	play("countdown_music.mp3", wait=True)
 
 
 if __name__ == "__main__":
