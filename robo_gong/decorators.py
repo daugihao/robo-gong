@@ -17,4 +17,3 @@ def with_gpio(pwm_pin):
                 return func(GPIO, *args, **kwargs)
         return wrapper
     return inner
-
