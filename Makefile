@@ -5,14 +5,14 @@ SEMVER_VERSION=$(shell git describe --abbrev=0 --tags)
 
 install:
 	# Setup Venv
-	pip install virtualenv
-	virtualenv --python=python3 venv
-	source venv/bin/activate
+	#pip3 install virtualenv
+	#python3 -m virtualenv --python=python3 venv
 	# Install requirements
-	pip install -r requirements.txt
-	deactivate
+	#bash -c 'source venv/bin/activate && pip install -r requirements.txt'
 	# Install Daemon
-	sudo apt-get install supervisord
-	cp supervisord.conf /etc/supervisor/conf.d/robo-gong.conf
+	#pip3 install supervisor
+	sudo mkdir -p /etc/supervisor/conf.d/
+	sudo bash -c "echo_supervisord_conf > /etc/supervisor/supervisord.conf"
+	sudo cp supervisord.conf /etc/supervisor/conf.d/robo-gong.conf
 	# Restart Daemon
-	sudo supervisord restart
+	sudo supervisorctl reload
